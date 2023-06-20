@@ -4,7 +4,7 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 
 export async function authRoutes(app: FastifyInstance) {
-  app.post("/resgister", async (request) => {
+  app.post("/registrar", async (request) => {
     const bodySchema = z.object({
       code: z.string(),
     });
@@ -57,7 +57,7 @@ export async function authRoutes(app: FastifyInstance) {
         },
       });
     }
-    
+
     const token = app.jwt.sign(
       {
         name: user.name,
